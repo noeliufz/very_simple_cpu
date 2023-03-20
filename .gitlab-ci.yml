@@ -1,0 +1,221 @@
+image: brentschuetze/comp2300-arch-test:latest
+
+stages:
+  - filecheck
+  - test
+  - capture
+  - render
+
+file:basic-cpu.dig:
+  tags:
+    - comp2300
+  allow_failure: true
+  stage: filecheck
+  script:
+    - python3 /scripts/validate.py exists src/basic-cpu.dig
+    - python3 /scripts/validate.py different src/basic-cpu.dig -U https://raw.githubusercontent.com/bschuetze/comp2300-2023-lab-pack-1-dev/main/a1/basic-cpu.dig
+
+file:extended-cpu.dig:
+  tags:
+    - comp2300
+  allow_failure: true
+  stage: filecheck
+  script:
+    - python3 /scripts/validate.py exists src/extended-cpu.dig
+    - python3 /scripts/validate.py different src/extended-cpu.dig -U https://raw.githubusercontent.com/bschuetze/comp2300-2023-lab-pack-1-dev/main/a1/extended-cpu.dig
+
+file:quac.json:
+  tags:
+    - comp2300
+  allow_failure: true
+  stage: filecheck
+  script:
+    - python3 /scripts/validate.py exists quac.json
+    - python3 /scripts/validate.py different quac.json -U https://raw.githubusercontent.com/bschuetze/comp2300-2023-lab-pack-1-dev/main/a1/quac.json
+
+file:demo.quac:
+  tags:
+    - comp2300
+  allow_failure: true
+  stage: filecheck
+  script:
+    - python3 /scripts/validate.py exists demo.quac
+    - python3 /scripts/validate.py different demo.quac -U https://raw.githubusercontent.com/bschuetze/comp2300-2023-lab-pack-1-dev/main/a1/demo.quac
+
+statement-of-originality:
+  stage: filecheck
+  allow_failure: true
+  tags:
+    - comp2300
+  script:
+    - python3 /scripts/validate.py schema ./statement-of-originality.md https://comp.anu.edu.au/courses/comp1720/assets/schemas/soo-md.json
+
+report:
+  stage: filecheck
+  allow_failure: true
+  tags:
+    - comp2300
+  script:
+    - python3 /scripts/validate.py exists report.md
+    - var="$(cat report.md | wc -w)"
+    - >
+      echo "Word Count: $var"
+    - > 
+      if (( $var > 300)); then
+          if (( $var > 1200)); then
+            echo "Your report should be < 1000 words!";
+            exit 1;
+          else
+            exit 0;
+          fi
+      else
+        echo "Your report should probably be more than 300 words!";
+        exit 1;
+      fi
+
+test:basic-cpu.dig:
+  tags:
+    - comp2300
+  stage: test
+  allow_failure: true
+  needs:
+    - file:basic-cpu.dig
+  artifacts:
+    when: always
+    paths:
+      - basic-cpu-markers.dig.tlog
+      - basic-cpu-part-1.dig.tlog
+  script:
+    - python3 /scripts/test.py test src/basic-cpu.dig --tests /data/ass1/cpu.test.dig -RP basic-cpu-markers.dig.tlog
+    - python3 /scripts/test.py test src/basic-cpu.dig --tests /data/ass1/part1.test.dig -RP basic-cpu-part-1.dig.tlog --no-verbose
+
+test:extended-cpu.dig:
+  tags:
+    - comp2300
+  stage: test
+  allow_failure: true
+  needs:
+    - file:basic-cpu.dig
+  artifacts:
+    when: always
+    paths:
+      - extended-cpu-markers.dig.tlog
+      - extended-cpu-part-1.dig.tlog
+  script:
+    - python3 /scripts/test.py test src/extended-cpu.dig --tests /data/ass1/cpu.test.dig -RP extended-cpu-markers.dig.tlog
+    - python3 /scripts/test.py test src/extended-cpu.dig --tests /data/ass1/part1.test.dig -RP extended-cpu-part-1.dig.tlog --no-verbose
+
+svgs:
+  stage: capture
+  tags:
+    - comp2300
+  artifacts:
+    when: always
+    paths:
+      - basic-cpu.dig.png
+      - extended-cpu.dig.png
+      - "*.png"
+      - references.md
+    reports:
+      dotenv: student.env
+  script:
+    - python3 /scripts/test.py get-images -HT -I3E -F png -D . src/
+    - python3 /scripts/validate.py get-student statement-of-originality.md
+    - python3 /scripts/validate.py get-content statement-of-originality.md -C references.md
+
+pdf:
+  stage: render
+  tags:
+    - comp2300
+  image: 
+    name: charlepm/pandoc-latex-libertine:0.3.0
+    entrypoint: ["/bin/sh", "-c"]
+  needs:
+    - job: svgs
+      artifacts: true
+    - job: test:basic-cpu.dig
+      artifacts: true
+    - job: test:extended-cpu.dig
+      artifacts: true
+  variables:
+    PDF_NAME: '$CI_PROJECT_ROOT_NAMESPACE-$CI_PROJECT_NAME.pdf'
+  script:
+    - ls
+    # Create references (if not present)
+    - touch references.md
+    # Create images (if not present)
+    - touch basic-cpu.dig.png 
+    - touch extended-cpu.dig.png
+    # create test results (if not present)
+    - touch basic-cpu-markers.dig.tlog
+    - touch basic-cpu-part-1.dig.tlog
+    - touch extended-cpu-markers.dig.tlog
+    - touch extended-cpu-part-1.dig.tlog
+    # Check env vars
+    - echo $PDF_NAME
+    - echo $STUDENT_NAME
+    - echo $STUDENT_UID
+    # Create md file
+    - echo "# Assignment 1" > pdf.md
+    - echo "## Student Details" >> pdf.md
+    - > 
+      echo "- **uid**: $STUDENT_UID" >> pdf.md
+    - > 
+      echo "- **name**: $STUDENT_NAME" >> pdf.md
+    - echo "" >> pdf.md
+    - echo "## CPUs" >> pdf.md
+    - echo "### Basic CPU" >> pdf.md
+    - echo "![basic-cpu.dig.png](basic-cpu.dig.png)" >> pdf.md
+    - echo "" >> pdf.md
+    - echo "#### Test Results" >> pdf.md
+    - echo "" >> pdf.md
+    - awk -v ORS="  \n" '1' basic-cpu-markers.dig.tlog >> pdf.md
+    - echo "" >> pdf.md
+    - awk -v ORS="  \n" '1' basic-cpu-part-1.dig.tlog >> pdf.md
+    - echo "" >> pdf.md
+    - echo "### Extended CPU" >> pdf.md
+    - echo "![extended-cpu.dig.png](extended-cpu.dig.png)" >> pdf.md
+    - echo "" >> pdf.md
+    - echo "#### Test Results" >> pdf.md
+    - echo "" >> pdf.md
+    - awk -v ORS="  \n" '1' extended-cpu-markers.dig.tlog >> pdf.md
+    - echo "" >> pdf.md
+    - awk -v ORS="  \n" '1' extended-cpu-part-1.dig.tlog >> pdf.md
+    - echo "" >> pdf.md
+    - echo "\newpage" >> pdf.md
+    - echo "## Report" >> pdf.md
+    - echo "" >> pdf.md
+    - cat report.md >> pdf.md
+    - echo "" >> pdf.md
+    - echo "" >> pdf.md
+    - cat references.md >> pdf.md
+    - echo "" >> pdf.md
+    - echo "" >> pdf.md
+    - echo "## Glossary" >> pdf.md
+    - >
+      for img in *.png; do
+        [ -f "$img" ] || break
+        echo "$img"
+        if [ "$img" != "basic-cpu.dig.png" ] && [ "$img" != "extended-cpu.dig.png" ]; then
+          echo "### $img" >> pdf.md
+          echo "![ $img ]($img)" >> pdf.md
+          echo "" >> pdf.md
+        fi
+      done
+    - cat pdf.md
+    - |
+      pandoc \
+      --standalone \
+      -o $PDF_NAME \
+      -f markdown-implicit_figures \
+      -V 'geometry: left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm' \
+      -V 'papersize: a4' \
+      -V 'pagestyle:headings' \
+      -V block-headings \
+      -V 'fontfamily:libertine,sourcecodepro' \
+      -V 'fontsize:12pt' \
+      -V 'header-includes:\renewcommand{\familydefault}{\sfdefault}' \
+      pdf.md
+  artifacts:
+    paths:
+      - $PDF_NAME
