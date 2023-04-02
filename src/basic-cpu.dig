@@ -39,16 +39,6 @@
       <pos x="-620" y="120"/>
     </visualElement>
     <visualElement>
-      <elementName>reg_file.dig</elementName>
-      <elementAttributes/>
-      <pos x="440" y="720"/>
-    </visualElement>
-    <visualElement>
-      <elementName>alu.dig</elementName>
-      <elementAttributes/>
-      <pos x="760" y="860"/>
-    </visualElement>
-    <visualElement>
       <elementName>RAMDualAccess</elementName>
       <elementAttributes>
         <entry>
@@ -126,11 +116,6 @@
         </entry>
       </elementAttributes>
       <pos x="320" y="1180"/>
-    </visualElement>
-    <visualElement>
-      <elementName>control_unit.dig</elementName>
-      <elementAttributes/>
-      <pos x="-800" y="400"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -1222,6 +1207,21 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <elementName>Not</elementName>
       <elementAttributes/>
       <pos x="-720" y="1420"/>
+    </visualElement>
+    <visualElement>
+      <elementName>basic-control-unit.dig</elementName>
+      <elementAttributes/>
+      <pos x="-800" y="400"/>
+    </visualElement>
+    <visualElement>
+      <elementName>basic-alu.dig</elementName>
+      <elementAttributes/>
+      <pos x="760" y="860"/>
+    </visualElement>
+    <visualElement>
+      <elementName>basic-reg-file.dig</elementName>
+      <elementAttributes/>
+      <pos x="440" y="720"/>
     </visualElement>
   </visualElements>
   <wires>
