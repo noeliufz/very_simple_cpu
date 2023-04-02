@@ -1209,19 +1209,19 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <pos x="-720" y="1420"/>
     </visualElement>
     <visualElement>
-      <elementName>extend-control-unit.dig</elementName>
+      <elementName>extended-alu.dig</elementName>
+      <elementAttributes/>
+      <pos x="760" y="860"/>
+    </visualElement>
+    <visualElement>
+      <elementName>extended-control-unit.dig</elementName>
       <elementAttributes/>
       <pos x="-800" y="400"/>
     </visualElement>
     <visualElement>
-      <elementName>extend-reg-file.dig</elementName>
+      <elementName>extended-reg-file.dig</elementName>
       <elementAttributes/>
       <pos x="440" y="720"/>
-    </visualElement>
-    <visualElement>
-      <elementName>extend-alu.dig</elementName>
-      <elementAttributes/>
-      <pos x="760" y="860"/>
     </visualElement>
   </visualElements>
   <wires>
