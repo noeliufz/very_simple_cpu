@@ -1,5 +1,5 @@
 # Report of the extensions
-![Instruction Lookup table](assets\lookuptable.png)
+![Instruction Lookup table](assets/lookuptable.png)
 
 Instruction Lookup table
 ## ALU Immediates
@@ -19,7 +19,7 @@ of the `demo.quac` without the prefix "r", it will be parsed as an immediate num
 implement the machine code `1100 0001 0000 1111`. After executing the instruction, the value stored
 in `r1` now is 15.
 
-![ALU immediate instructions](assets\alu-immediate.png)
+![ALU immediate instructions](assets/alu-immediate.png)
 
 ## PC Relative Jump
 It is also possible to perform immediate arithmetic on the program counter on
