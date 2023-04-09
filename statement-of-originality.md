@@ -17,4 +17,4 @@ uid: u7572718
 ---
 # References
 - [1] Carry lookahead adder, Wikipedia. Retrieved from https://en.wikipedia.org/wiki/Carry-lookahead_adder
-- [2] 【HDL系列】超前进位加法器原理与设计, Zhihu. Retrieved from https://zhuanlan.zhihu.com/p/101332501
+- [2] HDL系列超前进位加法器原理与设计, Zhihu. Retrieved from https://zhuanlan.zhihu.com/p/101332501
