@@ -36,7 +36,7 @@
           <int>16</int>
         </entry>
       </elementAttributes>
-      <pos x="-620" y="120"/>
+      <pos x="-420" y="120"/>
     </visualElement>
     <visualElement>
       <elementName>RAMDualAccess</elementName>
@@ -167,7 +167,7 @@
           <string>16</string>
         </entry>
       </elementAttributes>
-      <pos x="-820" y="160"/>
+      <pos x="-820" y="140"/>
     </visualElement>
     <visualElement>
       <elementName>Const</elementName>
@@ -181,7 +181,7 @@
           <int>8</int>
         </entry>
       </elementAttributes>
-      <pos x="-1000" y="180"/>
+      <pos x="-1000" y="160"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -1153,7 +1153,7 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
           <string>16</string>
         </entry>
       </elementAttributes>
-      <pos x="-760" y="200"/>
+      <pos x="-760" y="180"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -1167,7 +1167,7 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
           <string>8,8</string>
         </entry>
       </elementAttributes>
-      <pos x="-980" y="220"/>
+      <pos x="-980" y="200"/>
     </visualElement>
     <visualElement>
       <elementName>Multiplexer</elementName>
@@ -1223,6 +1223,34 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <elementAttributes/>
       <pos x="440" y="720"/>
     </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>16</int>
+        </entry>
+      </elementAttributes>
+      <pos x="-640" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>2</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1,1</string>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="-620" y="300"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -1247,15 +1275,11 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
     </wire>
     <wire>
       <p1 x="-680" y="520"/>
-      <p2 x="-600" y="520"/>
+      <p2 x="-400" y="520"/>
     </wire>
     <wire>
       <p1 x="320" y="780"/>
       <p2 x="440" y="780"/>
-    </wire>
-    <wire>
-      <p1 x="-640" y="140"/>
-      <p2 x="-620" y="140"/>
     </wire>
     <wire>
       <p1 x="-860" y="1420"/>
@@ -1270,11 +1294,27 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="-500" y="1420"/>
     </wire>
     <wire>
+      <p1 x="-440" y="140"/>
+      <p2 x="-420" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="-800" y="140"/>
+      <p2 x="-640" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="-860" y="140"/>
+      <p2 x="-820" y="140"/>
+    </wire>
+    <wire>
       <p1 x="-960" y="400"/>
       <p2 x="-800" y="400"/>
     </wire>
     <wire>
       <p1 x="-680" y="400"/>
+      <p2 x="-620" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="-620" y="400"/>
       <p2 x="740" y="400"/>
     </wire>
     <wire>
@@ -1286,7 +1326,7 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="760" y="1040"/>
     </wire>
     <wire>
-      <p1 x="-660" y="20"/>
+      <p1 x="-460" y="20"/>
       <p2 x="900" y="20"/>
     </wire>
     <wire>
@@ -1318,24 +1358,28 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="1080" y="540"/>
     </wire>
     <wire>
-      <p1 x="360" y="800"/>
-      <p2 x="440" y="800"/>
+      <p1 x="-380" y="160"/>
+      <p2 x="-360" y="160"/>
     </wire>
     <wire>
-      <p1 x="-860" y="160"/>
+      <p1 x="-600" y="160"/>
+      <p2 x="-440" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="-1000" y="160"/>
       <p2 x="-820" y="160"/>
     </wire>
     <wire>
-      <p1 x="-800" y="160"/>
-      <p2 x="-620" y="160"/>
+      <p1 x="-440" y="160"/>
+      <p2 x="-420" y="160"/>
     </wire>
     <wire>
-      <p1 x="-580" y="160"/>
-      <p2 x="-560" y="160"/>
-    </wire>
-    <wire>
-      <p1 x="-560" y="160"/>
+      <p1 x="-360" y="160"/>
       <p2 x="360" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="800"/>
+      <p2 x="440" y="800"/>
     </wire>
     <wire>
       <p1 x="-680" y="420"/>
@@ -1362,7 +1406,7 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="-140" y="1320"/>
     </wire>
     <wire>
-      <p1 x="-640" y="40"/>
+      <p1 x="-440" y="40"/>
       <p2 x="920" y="40"/>
     </wire>
     <wire>
@@ -1390,20 +1434,24 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="1080" y="560"/>
     </wire>
     <wire>
+      <p1 x="-920" y="180"/>
+      <p2 x="-760" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="-740" y="180"/>
+      <p2 x="-640" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="-440" y="180"/>
+      <p2 x="-420" y="180"/>
+    </wire>
+    <wire>
       <p1 x="240" y="820"/>
       <p2 x="440" y="820"/>
     </wire>
     <wire>
       <p1 x="-300" y="1460"/>
       <p2 x="-240" y="1460"/>
-    </wire>
-    <wire>
-      <p1 x="-1000" y="180"/>
-      <p2 x="-820" y="180"/>
-    </wire>
-    <wire>
-      <p1 x="-680" y="180"/>
-      <p2 x="-620" y="180"/>
     </wire>
     <wire>
       <p1 x="140" y="1080"/>
@@ -1446,16 +1494,20 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="-160" y="1480"/>
     </wire>
     <wire>
-      <p1 x="-920" y="200"/>
+      <p1 x="340" y="840"/>
+      <p2 x="440" y="840"/>
+    </wire>
+    <wire>
+      <p1 x="-860" y="200"/>
       <p2 x="-760" y="200"/>
     </wire>
     <wire>
-      <p1 x="-740" y="200"/>
-      <p2 x="-680" y="200"/>
+      <p1 x="-1000" y="200"/>
+      <p2 x="-980" y="200"/>
     </wire>
     <wire>
-      <p1 x="340" y="840"/>
-      <p2 x="440" y="840"/>
+      <p1 x="-960" y="200"/>
+      <p2 x="-920" y="200"/>
     </wire>
     <wire>
       <p1 x="-680" y="460"/>
@@ -1494,18 +1546,6 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="760" y="980"/>
     </wire>
     <wire>
-      <p1 x="-860" y="220"/>
-      <p2 x="-760" y="220"/>
-    </wire>
-    <wire>
-      <p1 x="-1000" y="220"/>
-      <p2 x="-980" y="220"/>
-    </wire>
-    <wire>
-      <p1 x="-960" y="220"/>
-      <p2 x="-920" y="220"/>
-    </wire>
-    <wire>
       <p1 x="380" y="860"/>
       <p2 x="440" y="860"/>
     </wire>
@@ -1518,7 +1558,7 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="760" y="860"/>
     </wire>
     <wire>
-      <p1 x="-560" y="1500"/>
+      <p1 x="-360" y="1500"/>
       <p2 x="-240" y="1500"/>
     </wire>
     <wire>
@@ -1590,10 +1630,6 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="1080" y="500"/>
     </wire>
     <wire>
-      <p1 x="-660" y="120"/>
-      <p2 x="-620" y="120"/>
-    </wire>
-    <wire>
       <p1 x="540" y="760"/>
       <p2 x="560" y="760"/>
     </wire>
@@ -1606,6 +1642,10 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="-120" y="1400"/>
     </wire>
     <wire>
+      <p1 x="-460" y="120"/>
+      <p2 x="-420" y="120"/>
+    </wire>
+    <wire>
       <p1 x="700" y="1020"/>
       <p2 x="760" y="1020"/>
     </wire>
@@ -1616,6 +1656,10 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
     <wire>
       <p1 x="-580" y="460"/>
       <p2 x="-580" y="1540"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="20"/>
+      <p2 x="900" y="860"/>
     </wire>
     <wire>
       <p1 x="260" y="420"/>
@@ -1634,12 +1678,16 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="580" y="1040"/>
     </wire>
     <wire>
-      <p1 x="900" y="20"/>
-      <p2 x="900" y="860"/>
+      <p1 x="-460" y="20"/>
+      <p2 x="-460" y="120"/>
     </wire>
     <wire>
       <p1 x="140" y="620"/>
       <p2 x="140" y="1080"/>
+    </wire>
+    <wire>
+      <p1 x="-400" y="200"/>
+      <p2 x="-400" y="520"/>
     </wire>
     <wire>
       <p1 x="1040" y="880"/>
@@ -1650,20 +1698,16 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="720" y="980"/>
     </wire>
     <wire>
-      <p1 x="-660" y="20"/>
-      <p2 x="-660" y="120"/>
-    </wire>
-    <wire>
       <p1 x="340" y="560"/>
       <p2 x="340" y="840"/>
     </wire>
     <wire>
-      <p1 x="-600" y="200"/>
-      <p2 x="-600" y="520"/>
+      <p1 x="-920" y="180"/>
+      <p2 x="-920" y="200"/>
     </wire>
     <wire>
-      <p1 x="-920" y="200"/>
-      <p2 x="-920" y="220"/>
+      <p1 x="920" y="40"/>
+      <p2 x="920" y="980"/>
     </wire>
     <wire>
       <p1 x="600" y="740"/>
@@ -1678,19 +1722,15 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="280" y="740"/>
     </wire>
     <wire>
-      <p1 x="920" y="40"/>
-      <p2 x="920" y="980"/>
-    </wire>
-    <wire>
-      <p1 x="-860" y="160"/>
-      <p2 x="-860" y="220"/>
+      <p1 x="-860" y="140"/>
+      <p2 x="-860" y="200"/>
     </wire>
     <wire>
       <p1 x="-860" y="360"/>
       <p2 x="-860" y="420"/>
     </wire>
     <wire>
-      <p1 x="-860" y="220"/>
+      <p1 x="-860" y="200"/>
       <p2 x="-860" y="280"/>
     </wire>
     <wire>
@@ -1718,12 +1758,12 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="740" y="900"/>
     </wire>
     <wire>
-      <p1 x="-1000" y="220"/>
-      <p2 x="-1000" y="260"/>
+      <p1 x="-360" y="160"/>
+      <p2 x="-360" y="1500"/>
     </wire>
     <wire>
-      <p1 x="-680" y="180"/>
-      <p2 x="-680" y="200"/>
+      <p1 x="-1000" y="200"/>
+      <p2 x="-1000" y="260"/>
     </wire>
     <wire>
       <p1 x="360" y="160"/>
@@ -1742,6 +1782,14 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="-300" y="1460"/>
     </wire>
     <wire>
+      <p1 x="-620" y="300"/>
+      <p2 x="-620" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="-620" y="180"/>
+      <p2 x="-620" y="280"/>
+    </wire>
+    <wire>
       <p1 x="300" y="880"/>
       <p2 x="300" y="1080"/>
     </wire>
@@ -1752,10 +1800,6 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
     <wire>
       <p1 x="300" y="1080"/>
       <p2 x="300" y="1200"/>
-    </wire>
-    <wire>
-      <p1 x="-560" y="160"/>
-      <p2 x="-560" y="1500"/>
     </wire>
     <wire>
       <p1 x="560" y="360"/>
@@ -1770,16 +1814,20 @@ program(0x0100,0x0200,0x0316,0x0401,0x8000,0x8a04,0xb944,0x9040,0x5930,0x9000,0x
       <p2 x="-120" y="1400"/>
     </wire>
     <wire>
+      <p1 x="-440" y="40"/>
+      <p2 x="-440" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="-440" y="160"/>
+      <p2 x="-440" y="180"/>
+    </wire>
+    <wire>
       <p1 x="380" y="860"/>
       <p2 x="380" y="940"/>
     </wire>
     <wire>
       <p1 x="700" y="540"/>
       <p2 x="700" y="1020"/>
-    </wire>
-    <wire>
-      <p1 x="-640" y="40"/>
-      <p2 x="-640" y="140"/>
     </wire>
     <wire>
       <p1 x="-960" y="280"/>

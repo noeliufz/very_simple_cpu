@@ -1,0 +1,5 @@
+add r1, 15          @ add an immediate number 15 to r1
+add pc, 2           @ add an immediate number 2 to programme counter
+nop                 @ do nothing
+copy r1, 14         @ copy the value store in r1 to r14
+adde r2, 14, 14     @ add r14 + r14 and store the sum to r2

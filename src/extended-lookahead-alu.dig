@@ -393,16 +393,6 @@ end loop
       <pos x="940" y="1260"/>
     </visualElement>
     <visualElement>
-      <elementName>Add</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Bits</string>
-          <int>16</int>
-        </entry>
-      </elementAttributes>
-      <pos x="560" y="-380"/>
-    </visualElement>
-    <visualElement>
       <elementName>Const</elementName>
       <elementAttributes>
         <entry>
@@ -738,6 +728,11 @@ end loop
         </entry>
       </elementAttributes>
       <pos x="1460" y="860"/>
+    </visualElement>
+    <visualElement>
+      <elementName>16-BIT-LOOKAHEADADDER.dig</elementName>
+      <elementAttributes/>
+      <pos x="560" y="-380"/>
     </visualElement>
   </visualElements>
   <wires>

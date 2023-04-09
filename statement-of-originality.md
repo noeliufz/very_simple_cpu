@@ -10,10 +10,11 @@ declaration: >-
   own work except for the references listed below
 
 # sign *your* name and uid here
-name: 
-uid: 
+name: Fangzhou Liu
+uid: u7572718
 
 # list numbered references below (replace the example with your own references) 
 ---
 # References
-- [1] Example Author. 2023. example code video. Retrieved from https://example.com/video
+- [1] Carry lookahead adder, Wikipedia. Retrieved from https://en.wikipedia.org/wiki/Carry-lookahead_adder
+- [2] 【HDL系列】超前进位加法器原理与设计, Zhihu. Retrieved from https://zhuanlan.zhihu.com/p/101332501
